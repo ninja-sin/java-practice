@@ -1,4 +1,4 @@
-import org.ninja.alogrithm.InsertionSort;
+import org.ninja.alogrithm.ShellSort;
 import utils.MyPrint;
 
 import java.util.Random;
@@ -8,7 +8,7 @@ public class Test {
     public static void main(String[] args) {
         Random random = new Random();
 //        Integer[] sourceArr = randomSourceArr(Math.max(10, random.nextInt(15)));
-        int[] sourceArr = randomSourceArr(Math.max(10, random.nextInt(15)));
+        int[] sourceArr = randomSourceArr(Math.max(30, random.nextInt(35)));
         MyPrint.print(sourceArr);
 //        SelectionSort.sort(sourceArr, new Comparator<Integer>() {
 //            @Override
@@ -17,7 +17,7 @@ public class Test {
 //            }
 //        }, false);
 //        BubbleSort.sort(sourceArr);
-        InsertionSort.sort(sourceArr);
+        ShellSort.sort(sourceArr);
         MyPrint.print(sourceArr);
     }
 
