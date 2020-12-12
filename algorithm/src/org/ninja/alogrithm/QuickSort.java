@@ -1,6 +1,6 @@
 package org.ninja.alogrithm;
 
-import org.ninja.utils.ArrayUtils;
+import utils.ArrayUtils;
 
 public class QuickSort {
 
