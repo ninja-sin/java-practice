@@ -1,4 +1,4 @@
-import org.ninja.alogrithm.ShellSort;
+import org.ninja.alogrithm.MergeSort;
 import utils.MyPrint;
 
 import java.util.Random;
@@ -17,7 +17,9 @@ public class Test {
 //            }
 //        }, false);
 //        BubbleSort.sort(sourceArr);
-        ShellSort.sort(sourceArr);
+//        InsertionSort.sort(sourceArr);
+//        ShellSort.sort(sourceArr);
+        MergeSort.sort(sourceArr);
         MyPrint.print(sourceArr);
     }
 
