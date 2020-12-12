@@ -1,44 +1,36 @@
 package org.ninja.alogrithm;
 
-import utils.MyPrint;
-
 public class MergeSort {
     public static void sort(int[] sourceArr) {
-//        int [] t = new int[] {3, 2, 4, 1, 6};
-        int[] arr = process(sourceArr, 0, sourceArr.length - 1);
-        MyPrint.print(arr);
+        process(sourceArr, 0, sourceArr.length - 1);
     }
 
-    public static int[] process(int[] arr, int rightStart, int leftEnd) {
-        if (rightStart >= leftEnd) {
-            return new int[]{arr[rightStart]};
+    public static void process(int[] arr, int left, int right) {
+        if (left == right) {
+            return;
         }
-        int mid = rightStart + (leftEnd - rightStart) / 2;
-        int[] leftArr = process(arr, rightStart, mid);
-        int[] rightArr = process(arr, mid + 1, leftEnd);
-//        MyPrint.print(leftArr);
-//        MyPrint.print(rightArr);
-        return merge(leftArr, rightArr);
+        int mid = left + (right - left) / 2;
+        process(arr, left, mid);
+        process(arr, mid + 1, right);
+        merge(arr, left, mid, right);
     }
 
-    public static int[] merge(int[] leftArr, int[] rightArr) {
-        int[] temp = new int[rightArr.length + leftArr.length];
+    public static void merge(int[] arr, int left, int mid, int right) {
+        int[] temp = new int[right - left + 1];
+        int start = left;
         int tempIndex = 0;
-        int rightIndex = 0;
-        int leftIndex = 0;
-        while (leftIndex < leftArr.length && rightIndex < rightArr.length) {
-            if (leftArr[leftIndex] <= rightArr[rightIndex]) {
-                temp[tempIndex++] = leftArr[leftIndex++];
-            } else {
-                temp[tempIndex++] = rightArr[rightIndex++];
-            }
+        int rightStart = mid + 1;
+        while (left <= mid && rightStart <= right) {
+            temp[tempIndex++] = arr[left] <= arr[rightStart] ? arr[left++] : arr[rightStart++];
         }
-        while (leftIndex < leftArr.length) {
-            temp[tempIndex++] = leftArr[leftIndex++];
+        while (left <= mid) {
+            temp[tempIndex++] = arr[left++];
         }
-        while (rightIndex < rightArr.length) {
-            temp[tempIndex++] = rightArr[rightIndex++];
+        while (rightStart <= right) {
+            temp[tempIndex++] = arr[rightStart++];
         }
-        return temp;
+        for (int i = 0; i < temp.length; i++) {
+            arr[start++] = temp[i];
+        }
     }
 }
