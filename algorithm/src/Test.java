@@ -1,4 +1,4 @@
-import org.ninja.alogrithm.QuickSort;
+import org.ninja.alogrithm.HeapSort;
 import utils.MyPrint;
 
 import java.util.Random;
@@ -20,7 +20,8 @@ public class Test {
 //        InsertionSort.sort(sourceArr);
 //        ShellSort.sort(sourceArr);
 //        MergeSort.sort(sourceArr);
-        QuickSort.sort(sourceArr, 3);
+//        QuickSort.sort(sourceArr, 3);
+        HeapSort.sort(sourceArr, 4);
         MyPrint.print(sourceArr);
     }
 
